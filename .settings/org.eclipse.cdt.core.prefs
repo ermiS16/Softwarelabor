@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.config.gnu.exe.debug.509174047/PATH/delimiter=\:
+environment/project/cdt.managedbuild.config.gnu.exe.debug.509174047/PATH/operation=replace
+environment/project/cdt.managedbuild.config.gnu.exe.debug.509174047/PATH/value=java-1.8.0-openjdk-i386/bin\:/usr/local/bin\:/usr/bin\:/bin\:/usr/local/games\:/usr/games\:/home/eric/bin\:${PROFILEHOME}
+environment/project/cdt.managedbuild.config.gnu.exe.debug.509174047/append=true
+environment/project/cdt.managedbuild.config.gnu.exe.debug.509174047/appendContributed=true
