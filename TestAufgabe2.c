@@ -9,7 +9,7 @@
 #include "TestAufgabe2.h"
 
 void runTests(){
-	char pattern[] = "::";
+	char pattern[] = ":";
 	char string[] = {"Du::Bist::Ein::Idiot"};
 	char expected[] = {"Idiot"};
 	suffix(pattern, string, expected);
