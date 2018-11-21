@@ -10,32 +10,31 @@
 
 char* extract(char *input, char *pattern){
 	char *position = input;
-	char *temp;
 	int matching = 0;
+	int index=0;
 	printf("Pattern length: %d\n", strlen(pattern));
+
+	//Pattern Matching
 	while(*input != '\0'){
 		if(*input == *pattern){
-			temp = input;
-			for(int i=0; i<strlen(pattern); i++){
-				if(*temp == pattern[i]){
-					matching = 1;
-					temp++;
-				}else{
-					matching = 0;
-					input = temp;
-				}
-				if(matching){
+			index = 0;
+			while(index<strlen(pattern)){
+				if(*input == pattern[index]){
+					matching=1;
 					input++;
-					position = input;
 				}else{
-					input++;
+					matching=0;
 				}
-
+				index++;
 			}
 		}else{
 			input++;
 		}
 
+		if(matching){
+			position = input;
+			matching = 0;
+		}
 	}
 
 
