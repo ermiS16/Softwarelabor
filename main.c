@@ -7,8 +7,7 @@
 
 //#include "libs.h"
 #include "main.h"
-#include "TestAufgabe1.h"
-#include "TestAufgabe2.h"
+
 
 
 
@@ -21,9 +20,26 @@ int main(){
 //	runSerializeDeserializeTests();
 //	runDeserializeSerializeTests();
 	//Tests Aufgabe2
-	runTests();
+//	runTests();
+//	runTests2();
+//	  const int testNo = 9;
+//	  TestCase tests[9] = {
+//	       {"", 0},
+//	       {"Hallo", 1},
+//	       {"  Hallo", 1},
+//	       {"Hallo", 1},
+//	       {"  Hallo  ", 1},
+//
+//	       {"Hal lo", 2},
+//	       {" Hal lo", 2},
+//	       {"Hal lo ", 2},
+//	       {" Hal lo  ", 2}
+//	     };
+//
+//	  runTests3(testNo,tests);
 
 	//Tests Aufgabe3
+	  runTests4();
 	return 0;
 }
 

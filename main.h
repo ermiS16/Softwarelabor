@@ -9,6 +9,9 @@
 #define MAIN_H_
 
 int main(void);
+#include "TestAufgabe1.h"
+#include "TestAufgabe2.h"
+#include "TestAufgabe3.h"
 
 
 #endif /* MAIN_H_ */
