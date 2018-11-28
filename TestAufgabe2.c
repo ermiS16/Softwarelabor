@@ -46,8 +46,13 @@ Test testSuffix2(char* pattern, char* input, char *expected){
 
 Test testCount(char* input, int expected) {
   Test t;
+  int amountWords = 0;
 
-  if(expected == count(input)) {
+  amountWords = count(input);
+  printf("String: %s, ", input);
+  printf("Anzahl Worter: %d, ", amountWords);
+  printf("Erwarte Anzahl: %d\n", expected);
+  if(expected == amountWords) {
     t = OK;
   }
   else {
@@ -56,17 +61,17 @@ Test testCount(char* input, int expected) {
   return t;
 }
 
-void runTests3(int no, TestCase test[]) {
+void runTests3(int no, TestCaseCount test[]) {
   Test t;
   int i;
 
   for(i=0; i < no; i++) {
-    printf("Test %d: ", i);
+    printf("Test %d: , ", i);
     t = testCount(test[i].input, test[i].expected);
     if(OK == t)
-      printf("OK \n");
+      printf("Test OK \n\n");
     if(FAIL == t)
-      printf("FAIL \n");
+      printf("Test FAIL \n");
   }
 }
 

@@ -15,7 +15,7 @@
 typedef struct {
   char* input;
   int expected;
-} TestCase;
+} TestCaseCount;
 
 void runTests(void);
 Test testSuffix(char *pattern, char *input, char *expected);
@@ -23,7 +23,7 @@ void runTests2(void);
 Test testSuffix2(char *pattern, char *input, char *expected);
 
 Test testCount(char* input, int expected);
-void runTests3(int no, TestCase test[]);
+void runTests3(int no, TestCaseCount test[]);
 
 
 #endif /* TESTAUFGABE2_H_ */

@@ -10,6 +10,7 @@
 
 #include "libs.h"
 #include "enums.h"
+#include "aufgabe3.h"
 
 void runTests4();
 Test testBreakIntoWords();

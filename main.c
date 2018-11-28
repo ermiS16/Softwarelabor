@@ -7,9 +7,9 @@
 
 //#include "libs.h"
 #include "main.h"
+#include "TestCase.h"
 
-
-
+#define TEST_NO_COUNT 9
 
 
 int main(){
@@ -22,21 +22,8 @@ int main(){
 	//Tests Aufgabe2
 //	runTests();
 //	runTests2();
-//	  const int testNo = 9;
-//	  TestCase tests[9] = {
-//	       {"", 0},
-//	       {"Hallo", 1},
-//	       {"  Hallo", 1},
-//	       {"Hallo", 1},
-//	       {"  Hallo  ", 1},
-//
-//	       {"Hal lo", 2},
-//	       {" Hal lo", 2},
-//	       {"Hal lo ", 2},
-//	       {" Hal lo  ", 2}
-//	     };
-//
-//	  runTests3(testNo,tests);
+//	const int testNo = 9;
+//	runTests3(TEST_NO_COUNT,testsCountWords);
 
 	//Tests Aufgabe3
 	  runTests4();
