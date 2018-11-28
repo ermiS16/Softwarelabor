@@ -9,6 +9,7 @@
 
 #define MAXWORDS 3
 
+
 void runTests4(int no, TestCaseBreakWord test[]) {
 //	char input[] = "Dies ist ein Beispieltext";
 //	char *expected[] = { "Dies", "ist", "ein", "Beispieltext" };
@@ -25,16 +26,16 @@ Test testBreakIntoWords(char *input, int maxwords, char *expected) {
 	int amountWords = 0;
 	printf("Input: %s\n", input);
 	amountWords = breakIntoWords(input, maxwords, words);
-//	for (int i = 0; i < amountWords; i++) {
-//
-//		if (*words[i] == *expected) {
-//			t = OK;
-//		} else {
-//			t = FAIL;
-//		}
-//		printf("Word %d: %s, ", i + 1, words[i]);
-//		printf("Expected: %s\n", expected);
-//	}
+	for (int i = 0; i < amountWords; i++) {
+
+		if (*words[i] == *expected) {
+			t = OK;
+		} else {
+			t = FAIL;
+		}
+		printf("Word %d: %s, ", i + 1, words[i]);
+		printf("Expected: %s\n", expected);
+	}
 	printf("\n");
 	printf("Words found: %d\n", amountWords);
 	printf("Words Expected: %d\n", maxwords);

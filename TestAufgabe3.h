@@ -15,7 +15,7 @@
 typedef struct{
 	char *input;
 	int maxwords;
-	char *expected;
+	char **expected;
 }TestCaseBreakWord;
 
 void runTests4(int no, TestCaseBreakWord test[]);

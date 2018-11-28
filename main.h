@@ -9,6 +9,7 @@
 #define MAIN_H_
 
 int main(void);
+void initilizeTest4();
 #include "TestAufgabe1.h"
 #include "TestAufgabe2.h"
 #include "TestAufgabe3.h"
