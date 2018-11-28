@@ -5,32 +5,38 @@
  *      Author: Eric
  */
 
-
 #include "TestAufgabe3.h"
 
-#define MAXWORDS 5
+#define MAXWORDS 3
 
-void runTests4(){
-	testBreakIntoWords();
+void runTests4(int no, TestCaseBreakWord test[]) {
+//	char input[] = "Dies ist ein Beispieltext";
+//	char *expected[] = { "Dies", "ist", "ein", "Beispieltext" };
+	for (int i = 0; i < no; i++) {
+		testBreakIntoWords(test[i].input, test[i].maxwords,
+				test[i].expected);
+	}
+
 }
 
-Test testBreakIntoWords(){
-	char string[] = "Dies ist ein Beispieltext";
-	char *words[MAXWORDS];
-	words[0] = malloc(sizeof(char) * MAXWORDS);
-	int index = 0;
+Test testBreakIntoWords(char *input, int maxwords, char *expected) {
+	Test t = OK;
+	char *words[maxwords];
 	int amountWords = 0;
-	amountWords = breakIntoWords(string, MAXWORDS, words);
-	for(int i=0; i<amountWords;i++){
-//		wordPtr = words[amountWords];
-		index=0;
-		while(*words[index] != ' ' && *words[index] != '\0'){
-			printf("Word: %c", *words[index]);
-			index++;
-		}
-		printf(" ");
-	}
+	printf("Input: %s\n", input);
+	amountWords = breakIntoWords(input, maxwords, words);
+//	for (int i = 0; i < amountWords; i++) {
+//
+//		if (*words[i] == *expected) {
+//			t = OK;
+//		} else {
+//			t = FAIL;
+//		}
+//		printf("Word %d: %s, ", i + 1, words[i]);
+//		printf("Expected: %s\n", expected);
+//	}
 	printf("\n");
-	Test t=OK;
+	printf("Words found: %d\n", amountWords);
+	printf("Words Expected: %d\n", maxwords);
 	return t;
 }

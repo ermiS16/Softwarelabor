@@ -22,5 +22,9 @@ TestCaseCount testsCountWords[9] = {
 	       {" Hal lo  ", 2}
 	     };
 
+TestCaseBreakWord testsBreakIntoWords[2] = {
+		{"Dies ist ein Beispieltext", 5, "DieB"},
+		{"Ha ll o", 3, "Hlo"}
+};
 
 #endif /* TESTCASE_H_ */

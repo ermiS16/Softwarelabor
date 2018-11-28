@@ -7,9 +7,9 @@
 
 //#include "libs.h"
 #include "main.h"
-#include "TestCase.h"
+//#include "TestCase.h"
 
-#define TEST_NO_COUNT 9
+#define TEST_NO_COUNT 2
 
 
 int main(){
@@ -26,7 +26,7 @@ int main(){
 //	runTests3(TEST_NO_COUNT,testsCountWords);
 
 	//Tests Aufgabe3
-	  runTests4();
+	  runTests4(TEST_NO_COUNT, testsBreakIntoWords);
 	return 0;
 }
 

@@ -12,6 +12,7 @@ int main(void);
 #include "TestAufgabe1.h"
 #include "TestAufgabe2.h"
 #include "TestAufgabe3.h"
+#include "TestCase.h"
 
 
 #endif /* MAIN_H_ */

@@ -12,7 +12,13 @@
 #include "enums.h"
 #include "aufgabe3.h"
 
-void runTests4();
-Test testBreakIntoWords();
+typedef struct{
+	char *input;
+	int maxwords;
+	char *expected;
+}TestCaseBreakWord;
+
+void runTests4(int no, TestCaseBreakWord test[]);
+Test testBreakIntoWords(char *input, int maxwords, char *expected);
 
 #endif /* TESTAUFGABE3_H_ */

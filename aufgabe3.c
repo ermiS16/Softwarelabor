@@ -11,21 +11,29 @@
 int breakIntoWords(char *line, int maxwords, char *words[]){
 	int newWord = 1;
 	int wordIndex = 0;
-	char *linePtr = line;
 
-	while(line != '\0'){
-		while(line[0] == ' '){
+	while(wordIndex < maxwords && *line != '\0'){
+
+		while(*line == ' '){
 			newWord = 1;
+			*line = '\0';
 			line++;
-//			index++;
 		}
-		if(line[0] != ' ' && line[0] != '\0'){
+
+		if(*line != ' ' && *line != '\0'){
 			if(newWord){
 				words[wordIndex] = line;
 				wordIndex++;
 				newWord = 0;
 			}
 		}
+		if(wordIndex == maxwords){
+			while(*line != ' '){
+				line++;
+			}
+			*line = '\0';
+		}
+
 		line++;
 	}
 	return wordIndex;
