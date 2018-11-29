@@ -15,10 +15,12 @@
 typedef struct{
 	char *input;
 	int maxwords;
+	int expectedWords
 	char **expected;
 }TestCaseBreakWord;
 
+
 void runTests4(int no, TestCaseBreakWord test[]);
-Test testBreakIntoWords(char *input, int maxwords, char *expected);
+Test testBreakIntoWords(char *input, int maxwords, char *expected[],int expectedWords);
 
 #endif /* TESTAUFGABE3_H_ */
