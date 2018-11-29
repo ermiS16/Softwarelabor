@@ -12,15 +12,24 @@
 #include "enums.h"
 #include "aufgabe3.h"
 
+#define TEST_NO_BREAK 3
+#define MAXWORDS1 5
+#define MAXWORDS2 3
+#define MAXWORDS3 5
+#define EXPECTEDWORDS1 4
+#define EXPECTEDWORDS2 3
+#define EXPECTEDWORDS3 0
+
 typedef struct{
 	char *input;
 	int maxwords;
-	int expectedWords
+	int expectedWords;
 	char **expected;
 }TestCaseBreakWord;
 
 
 void runTests4(int no, TestCaseBreakWord test[]);
-Test testBreakIntoWords(char *input, int maxwords, char *expected[],int expectedWords);
+Test testBreakIntoWords(char *input, int maxwords,
+		int expectedWords, char *expected[]);
 
 #endif /* TESTAUFGABE3_H_ */

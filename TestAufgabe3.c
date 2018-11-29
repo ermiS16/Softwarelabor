@@ -15,13 +15,13 @@ void runTests4(int no, TestCaseBreakWord test[]) {
 //	char *expected[] = { "Dies", "ist", "ein", "Beispieltext" };
 	for (int i = 0; i < no; i++) {
 		printf("Test %d: \n", i+1);
-		printf("%d\n", testBreakIntoWords(test[i].input, test[i].maxwords,
-				test[i].expected), test[i]->expectedWords);
+		printf("Test: %d\n", testBreakIntoWords(test[i].input, test[i].maxwords,
+				test[i].expectedWords, test[i].expected));
 	}
 
 }
 
-Test testBreakIntoWords(char *input, int maxwords, char *expected[], int expectedWords) {
+Test testBreakIntoWords(char *input, int maxwords, int expectedWords,char *expected[]) {
 	Test t = OK;
 	char *words[maxwords];
 	int amountWords = 0;
@@ -40,6 +40,6 @@ Test testBreakIntoWords(char *input, int maxwords, char *expected[], int expecte
 	}
 	printf("\n");
 	printf("Words found: %d\n", amountWords);
-	printf("Words Expected: %d\n\n", expectedWords);
+	printf("Words Expected: %d\n", expectedWords);
 	return t;
 }
