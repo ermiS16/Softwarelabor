@@ -71,7 +71,7 @@ void runSerializeTests() {
 	Numbers n[] = { One, Fifteen, Last };
 	short int expectedData[4][3] = { { 0x0001, 0x000F, 0x00FF }, { 0x0101, 0x010F,
 			0x01FF }, { 0x0501, 0x050F, 0x05FF }, { 0xFF01, 0xFF0F, 0xFFFF },
-			{}};
+			};
 	short int data = 0;
 	short int *dat = &data;
 	int counter = 1;

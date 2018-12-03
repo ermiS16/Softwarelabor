@@ -8,7 +8,7 @@
 
 #include "TestAufgabe2.h"
 
-void runTests(){
+void runTestsSuffix(){
 	char pattern[] = "::";
 	char string[] = {"Du::Bist::Ein::Idiot"};
 	char expected[] = {"Idiot"};
@@ -18,11 +18,11 @@ void runTests(){
 Test testSuffix(char* pattern, char* input, char *expected){
 	Test t=OK;
 	printf("Pattern: %s\nString: %s\n", pattern, input);
-	printf("Output: %s, Expected: %s\n", extract(input, pattern), expected);
+	printf("Output: %s, Expected: %s\n\n", extract(input, pattern), expected);
 	return t;
 }
 
-void runTests2(){
+void runTestsSuffix2(){
 	char pattern[] = "::";
 	char string[] = {"Du::Bist::Ein::Idiot"};
 	char expected[] = {"Idiot"};
@@ -34,15 +34,9 @@ Test testSuffix2(char* pattern, char* input, char *expected){
 	char **output = &input;
 	printf("Pattern: %s\nString: %s\n", pattern, input);
 	extract2(input, output, pattern);
-	printf("Output: %s, Expected: %s\n", *output , expected);
+	printf("Output: %s, Expected: %s\n\n", *output , expected);
 	return t;
 }
-
-
-
-
-
-
 
 Test testCount(char* input, int expected) {
   Test t;
@@ -61,12 +55,12 @@ Test testCount(char* input, int expected) {
   return t;
 }
 
-void runTests3(int no, TestCaseCount test[]) {
+void runTestsCount(int no, TestCaseCount test[]) {
   Test t;
   int i;
 
   for(i=0; i < no; i++) {
-    printf("Test %d: , ", i);
+    printf("Test %d: , ", i+1);
     t = testCount(test[i].input, test[i].expected);
     if(OK == t)
       printf("Test OK \n\n");

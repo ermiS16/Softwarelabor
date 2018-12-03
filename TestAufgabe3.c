@@ -10,13 +10,18 @@
 #define MAXWORDS 3
 
 
-void runTests4(int no, TestCaseBreakWord test[]) {
-//	char input[] = "Dies ist ein Beispieltext";
-//	char *expected[] = { "Dies", "ist", "ein", "Beispieltext" };
+void runTestsBreakWord(int no, TestCaseBreakWord test[]) {
+	Test t;
 	for (int i = 0; i < no; i++) {
-		printf("Test %d: \n", i+1);
-		printf("Test: %d\n", testBreakIntoWords(test[i].input, test[i].maxwords,
-				test[i].expectedWords, test[i].expected));
+		printf("Test %d: \n\n", i+1);
+		t = testBreakIntoWords(test[i].input, test[i].maxwords,
+				test[i].expectedWords, test[i].expected);
+		if(t == OK){
+			printf("Test: OK\n\n");
+		}else{
+			printf("Test: FAIL\n\n");
+		}
+
 	}
 
 }
@@ -38,7 +43,6 @@ Test testBreakIntoWords(char *input, int maxwords, int expectedWords,char *expec
 		printf("Word %d: %s, ", i + 1, words[i]);
 		printf("Expected: %s\n", expected[i]);
 	}
-	printf("\n");
 	printf("Words found: %d\n", amountWords);
 	printf("Words Expected: %d\n", expectedWords);
 	return t;

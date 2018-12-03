@@ -28,7 +28,7 @@ typedef struct{
 }TestCaseBreakWord;
 
 
-void runTests4(int no, TestCaseBreakWord test[]);
+void runTestsBreakWord(int no, TestCaseBreakWord test[]);
 Test testBreakIntoWords(char *input, int maxwords,
 		int expectedWords, char *expected[]);
 

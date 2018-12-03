@@ -11,12 +11,10 @@
 #include "TestAufgabe1.h"
 #include "TestAufgabe2.h"
 #include "TestAufgabe3.h"
-#include "TestCase.h"
 
 
 int main(void);
-TestCaseCount* initializeTestCasesCount();
-TestCaseBreakWord* initializeTestCasesBreak(void);
-
+void initializeTestCasesCount(void);
+void initializeTestCasesBreak(void);
 
 #endif /* MAIN_H_ */
