@@ -17,17 +17,32 @@ int main(){
 //	runDeserializeSerializeTests();
 	//Tests Aufgabe2
 	printf("-----------Start Test Suffix-------------\n\n");
-	runTestsSuffix();
-	runTestsSuffix2();
+	initializeTestCaseExtract();
 	printf("-----------End Test Suffix-------------\n\n");
 	printf("-----------Start Test Count Words-------------\n\n");
 	initializeTestCasesCount();
-	printf("-----------End  Test Count Words-------------\n\n");
+	printf("-----------End Test Count Words-------------\n\n");
 	//Tests Aufgabe3
-	printf("-----------Start  Test extract Words-------------");
+	printf("-----------Start Test extract Words-------------");
 	initializeTestCasesBreak();
-	printf("-----------End  Test extract Words-------------\n\n");
+	printf("-----------End Test extract Words-------------\n\n");
 	return 0;
+}
+
+void initializeTestCaseExtract(void){
+	TestCaseExtract testsExtractSuffix[TEST_NO_SUFFIX] = {
+			       {"", ""},
+			       {"Hallo", "Hallo"},
+			       {"::Hallo", "Hallo"},
+			       {"Hallo", "Hallo"},
+			       {":::Hallo:::", ""},
+			       {"Hal::lo", "lo"},
+			       {"::Hal::lo", "lo"},
+			       {"Hal::lo:", "lo"},
+			       {":Hal:lo::", ""},
+				   {":Hal::lo:", "lo:"}
+			     };
+		runTestSuffix(TEST_NO_SUFFIX, testsExtractSuffix);
 }
 
 void initializeTestCasesCount(void){

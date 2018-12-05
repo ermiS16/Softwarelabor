@@ -5,51 +5,89 @@
  *      Author: eric
  */
 
-
 #include "aufgabe2.h"
 
-char* extract(char *input, char *pattern){
+char* extract(char *input, char *pattern) {
 	char *position = input;
-	int matching = 0;
-	int index=0;
-	printf("Pattern length: %d\n",(int) strlen(pattern));
+	char patternChar = *pattern;
+	char inputChar = *input;
+	int inputLength = 0;
+	int indexI;
+	int indexP;
+	int patternLength = 0;
+	int matching = 1;
+	//Count InputLength
+	while (inputChar != '\0') {
+		inputLength++;
+		inputChar = input[inputLength];
+	}
+	indexI = inputLength - 1;
+	//Count Patternlength
+	while (patternChar != '\0') {
+		patternLength++;
+		patternChar = pattern[patternLength];
+	}
+	indexP = patternLength - 1;
+	//	Pattern Matching
+	while (indexI > 0) {
 
-	//Pattern Matching
-	while(*input != '\0'){
-		if(*input == *pattern){
-			index = 0;
-			while(index<strlen(pattern)){
-				if(*input == pattern[index]){
-					matching=1;
-					input++;
-				}else{
-					matching=0;
+		if (input[indexI] == pattern[indexP]) {
+			for (int i = 0; i < patternLength; i++) {
+				if (input[indexI] == pattern[indexP]) {
+					if (indexI > 0) {
+						indexI--;
+					}
+					if (indexP > 0) {
+						indexP--;
+					}
+					matching = 1;
+				} else {
+					indexP = patternLength;
+					indexI--;
+					matching = 0;
 				}
-				index++;
 			}
-		}else{
-			input++;
 		}
-		if(matching){
-			position = input;
-			matching = 0;
+		if (indexP == 0 && matching == 1) {
+			for (int i = 0; i <= indexI + patternLength; i++) {
+				input++;
+			}
+			indexI=0;
 		}
+		position = input;
+		indexI--;
 	}
 	return position;
 }
 
+/*
+ char* extract(char *input, char *pattern) {
+ int length = 0;
+ while (input[length] != 0) {
+ length++;
+ }
 
-void extract2(char *input, char **output, char *pattern){
+ //Find last :
+ int doubleCounter = 0;
+ while (doubleCounter < 2) {
+ while (input[length] != ':') {
+ while()
+ }
+ }
+ }
+ }
+ */
+
+void extract2(char *input, char **output, char *pattern) {
 	*output = extract(input, pattern);
 }
-
 
 // Ueberspringe alle Leerzeichen
 // Rueckgabe ist Zeiger auf das erste Nichtleerzeichen
 char* leerzeichen(char* input) {
-  while(*input == ' ')
-    input++;
-  return input;
+	while (*input == ' ')
+		input++;
+	return input;
 }
 
 // Scanne durch string solange bis wir auf ein
@@ -57,28 +95,27 @@ char* leerzeichen(char* input) {
 // Effektiv ueberspringen wir ein Wort.
 // Rueckgabe: Zeiger auf Ende oder Leerzeichen.
 char* zeichen(char* input) {
-  while(*input != '\0' && *input != ' ')
-    input++;
-  return input;
+	while (*input != '\0' && *input != ' ')
+		input++;
+	return input;
 }
 
-
 int count(char* input) {
-  int cnt = 0;
+	int cnt = 0;
 
-  // Solange das Ende nicht erreicht ist:
-  // 1. Ueberspringe alle Leerzeichen
-  // 2. Falls Zeichen gefunden
-  //     (a) setze Zaehler hoch
-  //     (b) Gehe zu Wortende
+// Solange das Ende nicht erreicht ist:
+// 1. Ueberspringe alle Leerzeichen
+// 2. Falls Zeichen gefunden
+//     (a) setze Zaehler hoch
+//     (b) Gehe zu Wortende
 
-  while(*input != '\0') {
-    input = leerzeichen(input);
-    if(*input != '\0') {
-      cnt++;
-      input = zeichen(input);
-    }
-  }
-  return cnt;
+	while (*input != '\0') {
+		input = leerzeichen(input);
+		if (*input != '\0') {
+			cnt++;
+			input = zeichen(input);
+		}
+	}
+	return cnt;
 }
 

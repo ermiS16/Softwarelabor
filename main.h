@@ -16,5 +16,5 @@
 int main(void);
 void initializeTestCasesCount(void);
 void initializeTestCasesBreak(void);
-
+void initializeTestCaseExtract(void);
 #endif /* MAIN_H_ */

@@ -8,25 +8,40 @@
 
 #include "TestAufgabe2.h"
 
-void runTestsSuffix(){
-	char pattern[] = "::";
-	char string[] = {"Du::Bist::Ein::Idiot"};
-	char expected[] = {"Idiot"};
-	testSuffix(pattern, string, expected);
+void runTestSuffix(int no, TestCaseExtract test[]){
+	Test t=OK;
+	for(int i=0; i<no; i++){
+		printf("Test %d:\n", i+1);
+		t = testSuffix("::", test[i].input, test[i].expected);
+		if(t==OK){
+			printf("Test: OK");
+		}else{
+			printf("Test: FAIL");
+		}
+		printf("\n\n");
+	}
+
 }
 
 Test testSuffix(char* pattern, char* input, char *expected){
 	Test t=OK;
+	int index=0;
+	char *output = extract(input, pattern);
+	while(output[index] != '\0'){
+		if(output[index] == expected[index]){
+			t=OK;
+		}else{
+			t=FAIL;
+		}
+		index++;
+	}
 	printf("Pattern: %s\nString: %s\n", pattern, input);
-	printf("Output: %s, Expected: %s\n\n", extract(input, pattern), expected);
+	printf("Output: %s\nExpected: %s\n", extract(input, pattern), expected);
 	return t;
 }
 
-void runTestsSuffix2(){
-	char pattern[] = "::";
-	char string[] = {"Du::Bist::Ein::Idiot"};
-	char expected[] = {"Idiot"};
-	testSuffix2(pattern, string, expected);
+void runTestSuffix2(int no, TestCaseExtract test[]){
+
 }
 
 Test testSuffix2(char* pattern, char* input, char *expected){
