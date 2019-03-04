@@ -38,7 +38,7 @@ void initializeTestCaseExtract(void){
 			       {":::Hallo:::", ""},
 			       {"Hal::lo", "lo"},
 			       {"::Hal::lo", "lo"},
-			       {"Hal::lo:", "lo"},
+			       {"Hal::lo:", "lo:"},
 			       {":Hal:lo::", ""},
 				   {":Hal::lo:", "lo:"}
 			     };

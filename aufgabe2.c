@@ -2,7 +2,7 @@
  * aufgabe2.c
  *
  *  Created on: 07.11.2018
- *      Author: eric
+ *      Author: Eric
  */
 
 #include "aufgabe2.h"
@@ -12,25 +12,33 @@ char *extract(char *input, char *pattern){
 	int inputLength = stringLength(input);
 	int patternLength = stringLength(pattern);
 	int indexI = inputLength-1;
-	int indexP = 0;
+	int indexP = patternLength-1;
 	int matching = 0;
-	int i = 0;
-	if(inputLength <= patternLength){
-		while(i < inputLength || matching == 1){
-			while(pattern[indexP] == input[indexI]){
-				i++;
-				indexI--;
-				indexP++;
-				if(pattern[indexP] == '\0'){
-					matching = 1;
-				}
-			}
-			indexP = 0;
+	int indexTmpI = indexI;
+	int indexTmpP = indexP;
+
+	while(indexI > 0 && !matching){
+		indexTmpI = indexI;
+		indexTmpP = indexP;
+		while(!matching && input[indexI] == pattern[indexP]){
+			if(indexP == 0) matching = 1;
+			indexI--;
+			indexP--;
 		}
+		indexI = indexTmpI;
+		indexP = indexTmpP;
+		indexI--;
 	}
 
+	if(matching){
+		for(int i = 0; i < patternLength; i++){
+			indexI++;
+		}
+		result = &input[indexI];
+	}
 	return result;
 }
+
 int stringLength(char *s){
 	int length = 0;
 	while(*s != '\0'){
