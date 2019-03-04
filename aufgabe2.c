@@ -7,58 +7,90 @@
 
 #include "aufgabe2.h"
 
-char* extract(char *input, char *pattern) {
-	char *position = input;
-	char patternChar = *pattern;
-	char inputChar = *input;
-	int inputLength = 0;
-	int indexI;
-	int indexP;
-	int patternLength = 0;
-	int matching = 1;
-	//Count InputLength
-	while (inputChar != '\0') {
-		inputLength++;
-		inputChar = input[inputLength];
-	}
-	indexI = inputLength - 1;
-	//Count Patternlength
-	while (patternChar != '\0') {
-		patternLength++;
-		patternChar = pattern[patternLength];
-	}
-	indexP = patternLength - 1;
-	//	Pattern Matching
-	while (indexI > 0) {
-
-		if (input[indexI] == pattern[indexP]) {
-			for (int i = 0; i < patternLength; i++) {
-				if (input[indexI] == pattern[indexP]) {
-					if (indexI > 0) {
-						indexI--;
-					}
-					if (indexP > 0) {
-						indexP--;
-					}
+char *extract(char *input, char *pattern){
+	char *result = input;
+	int inputLength = stringLength(input);
+	int patternLength = stringLength(pattern);
+	int indexI = inputLength-1;
+	int indexP = 0;
+	int matching = 0;
+	int i = 0;
+	if(inputLength <= patternLength){
+		while(i < inputLength || matching == 1){
+			while(pattern[indexP] == input[indexI]){
+				i++;
+				indexI--;
+				indexP++;
+				if(pattern[indexP] == '\0'){
 					matching = 1;
-				} else {
-					indexP = patternLength;
-					indexI--;
-					matching = 0;
 				}
 			}
+			indexP = 0;
 		}
-		if (indexP == 0 && matching == 1) {
-			for (int i = 0; i <= indexI + patternLength; i++) {
-				input++;
-			}
-			indexI=0;
-		}
-		position = input;
-		indexI--;
 	}
-	return position;
+
+	return result;
 }
+int stringLength(char *s){
+	int length = 0;
+	while(*s != '\0'){
+		length++;
+		s++;
+	}
+	return length;
+}
+//char* extract(char *input, char *pattern) {
+//	char *position = input;
+//	char patternChar = *pattern;
+//	char inputChar = *input;
+//	int inputLength = 0;
+//	int indexI;
+//	int indexP;
+//	int patternLength = 0;
+//	int matching = 1;
+//	//Count InputLength
+//	while (inputChar != '\0') {
+//		inputLength++;
+//		inputChar = input[inputLength];
+//	}
+//	indexI = inputLength - 1;
+//	//Count Patternlength
+//	while (patternChar != '\0') {
+//		patternLength++;
+//		patternChar = pattern[patternLength];
+//	}
+//	indexP = patternLength - 1;
+//	//	Pattern Matching
+//	while (indexI > 0) {
+//
+//		if (input[indexI] == pattern[indexP]) {
+//			for (int i = 0; i < patternLength; i++) {
+//				if (input[indexI] == pattern[indexP]) {
+//					if (indexI > 0) {
+//						indexI--;
+//					}
+//					if (indexP > 0) {
+//						indexP--;
+//					}
+//					matching = 1;
+//				} else {
+//					indexP = patternLength;
+//					indexI--;
+//					matching = 0;
+//				}
+//			}
+//		}
+//		if (indexP == 0 && matching == 1) {
+//			for (int i = 0; i <= indexI + patternLength; i++) {
+//				input++;
+//			}
+//			indexI=0;
+//		}
+//		position = input;
+//		indexI--;
+//	}
+//	return position;
+//}
 
 /*
  char* extract(char *input, char *pattern) {
