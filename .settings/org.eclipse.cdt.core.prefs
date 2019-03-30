@@ -1,9 +1,3 @@
 eclipse.preferences.version=1
-environment/project/cdt.managedbuild.config.gnu.exe.debug.509174047/MSYS_HOME/delimiter=;
-environment/project/cdt.managedbuild.config.gnu.exe.debug.509174047/MSYS_HOME/operation=replace
-environment/project/cdt.managedbuild.config.gnu.exe.debug.509174047/MSYS_HOME/value=D\:\\msys\\1.0
-environment/project/cdt.managedbuild.config.gnu.exe.debug.509174047/PATH/delimiter=\:
-environment/project/cdt.managedbuild.config.gnu.exe.debug.509174047/PATH/operation=replace
-environment/project/cdt.managedbuild.config.gnu.exe.debug.509174047/PATH/value=${MINGW_HOME}\\bin;${MSYS_HOME}\\bin;${MSYS_HOME}\\usr\\bin;D\:/Program Files/Java/jre1.8.0_131/bin/server;D\:/Program Files/Java/jre1.8.0_131/bin;D\:/Program Files/Java/jre1.8.0_131/lib/amd64;C\:\\ProgramData\\Oracle\\Java\\javapath;C\:\\Windows\\system32;C\:\\Windows;C\:\\Windows\\System32\\Wbem;C\:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C\:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C\:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C\:\\Program Files\\Intel\\WiFi\\bin\\;C\:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;C\:\\Program Files\\Intel\\WiFi\\bin\\;C\:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;C\:\\Windows\\system32\:${PATH}
 environment/project/cdt.managedbuild.config.gnu.exe.debug.509174047/append=true
 environment/project/cdt.managedbuild.config.gnu.exe.debug.509174047/appendContributed=true

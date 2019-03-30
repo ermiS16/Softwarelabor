@@ -6,7 +6,12 @@
  */
 
 #include "aufgabe2.h"
-
+/**
+ * Extracts a String, that contains the Characters following the pattern.
+ * @param input String in which to search for the pattern
+ * @param pattern The Pattern to search for.
+ * return char* of the first Character, that follows the pattern.
+ */
 char *extract(char *input, char *pattern){
 	char *result = input;
 	int inputLength = stringLength(input);
@@ -47,76 +52,6 @@ int stringLength(char *s){
 	}
 	return length;
 }
-//char* extract(char *input, char *pattern) {
-//	char *position = input;
-//	char patternChar = *pattern;
-//	char inputChar = *input;
-//	int inputLength = 0;
-//	int indexI;
-//	int indexP;
-//	int patternLength = 0;
-//	int matching = 1;
-//	//Count InputLength
-//	while (inputChar != '\0') {
-//		inputLength++;
-//		inputChar = input[inputLength];
-//	}
-//	indexI = inputLength - 1;
-//	//Count Patternlength
-//	while (patternChar != '\0') {
-//		patternLength++;
-//		patternChar = pattern[patternLength];
-//	}
-//	indexP = patternLength - 1;
-//	//	Pattern Matching
-//	while (indexI > 0) {
-//
-//		if (input[indexI] == pattern[indexP]) {
-//			for (int i = 0; i < patternLength; i++) {
-//				if (input[indexI] == pattern[indexP]) {
-//					if (indexI > 0) {
-//						indexI--;
-//					}
-//					if (indexP > 0) {
-//						indexP--;
-//					}
-//					matching = 1;
-//				} else {
-//					indexP = patternLength;
-//					indexI--;
-//					matching = 0;
-//				}
-//			}
-//		}
-//		if (indexP == 0 && matching == 1) {
-//			for (int i = 0; i <= indexI + patternLength; i++) {
-//				input++;
-//			}
-//			indexI=0;
-//		}
-//		position = input;
-//		indexI--;
-//	}
-//	return position;
-//}
-
-/*
- char* extract(char *input, char *pattern) {
- int length = 0;
- while (input[length] != 0) {
- length++;
- }
-
- //Find last :
- int doubleCounter = 0;
- while (doubleCounter < 2) {
- while (input[length] != ':') {
- while()
- }
- }
- }
- }
- */
 
 void extract2(char *input, char **output, char *pattern) {
 	*output = extract(input, pattern);

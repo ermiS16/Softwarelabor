@@ -12,7 +12,7 @@ void runTestSuffix(int no, TestCaseExtract test[]){
 	Test t=OK;
 	for(int i=0; i<no; i++){
 		printf("Test %d:\n", i+1);
-		t = testSuffix("::", test[i].input, test[i].expected);
+		t = testSuffix(test[i].pattern, test[i].input, test[i].expected);
 		if(t==OK){
 			printf("Test: OK");
 		}else{
@@ -27,7 +27,7 @@ Test testSuffix(char* pattern, char* input, char *expected){
 	Test t=OK;
 	int index=0;
 	char *output = extract(input, pattern);
-	while(output[index] != '\0'){
+	while(output[index] != '\0' && expected[index != '\0']){
 		if(output[index] == expected[index]){
 			t=OK;
 		}else{

@@ -12,7 +12,7 @@
 #include "enums.h"
 
 #define TEST_NO_COUNT 9
-#define TEST_NO_SUFFIX 10
+#define TEST_NO_SUFFIX 14
 
 typedef struct {
 	char* input;
@@ -20,7 +20,7 @@ typedef struct {
 } TestCaseCount;
 
 typedef struct {
-//	char* pattern;
+	char* pattern;
 	char* input;
 	char* expected;
 } TestCaseExtract;

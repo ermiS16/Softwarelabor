@@ -23,7 +23,7 @@ int main(){
 	initializeTestCasesCount();
 	printf("-----------End Test Count Words-------------\n\n");
 	//Tests Aufgabe3
-	printf("-----------Start Test extract Words-------------");
+	printf("-----------Start Test extract Words-------------\n\n");
 	initializeTestCasesBreak();
 	printf("-----------End Test extract Words-------------\n\n");
 	return 0;
@@ -31,16 +31,20 @@ int main(){
 
 void initializeTestCaseExtract(void){
 	TestCaseExtract testsExtractSuffix[TEST_NO_SUFFIX] = {
-			       {"", ""},
-			       {"Hallo", "Hallo"},
-			       {"::Hallo", "Hallo"},
-			       {"Hallo", "Hallo"},
-			       {":::Hallo:::", ""},
-			       {"Hal::lo", "lo"},
-			       {"::Hal::lo", "lo"},
-			       {"Hal::lo:", "lo:"},
-			       {":Hal:lo::", ""},
-				   {":Hal::lo:", "lo:"}
+			       {"::", "", ""},
+			       {"::", "Hallo", "Hallo"},
+			       {"::", "::Hallo", "Hallo"},
+			       {"::", "Hallo", "Hallo"},
+			       {"::", ":::Hallo:::", ""},
+			       {"::", "Hal::lo", "lo"},
+			       {"::", "::Hal::lo", "lo"},
+			       {"::", "Hal::lo:", "lo:"},
+			       {"::", ":Hal:lo::", ""},
+				   {"::", ":Hal::lo:", "lo:"},
+				   {"l:", "Ha:ll:o::", "o::"},
+				   {"l:", "Ha:l:l:o", "o"},
+				   {"l:", "Hal::l:o:", "o:"},
+				   {"l:", "Hal:l::o", ":o"},
 			     };
 		runTestSuffix(TEST_NO_SUFFIX, testsExtractSuffix);
 }
