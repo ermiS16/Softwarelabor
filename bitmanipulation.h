@@ -1,16 +1,22 @@
 /*
- * aufgabe1.h
+ * bitmanipulation.h
  *
  *  Created on: 31.10.2018
  *      Author: eric
  */
 
-#ifndef AUFGABE1_H_
-#define AUFGABE1_H_
+#ifndef BITMANIPULATION_H_
+#define BITMANIPULATION_H_
 
 #include "libs.h"
 #include "enums.h"
 
+typedef struct{
+ char *input;
+ char *expected;
+}TestCaseBit;
+
+#define TEST_NO_BIT 10
 #define BYTEMASK 0xFF
 #define BYTE 8
 
@@ -19,4 +25,4 @@ void serialize(Status s, Numbers n, short int *data);
 void deserialize(short int data, Status *s, Numbers *n);
 
 
-#endif /* AUFGABE1_H_ */
+#endif /* BITMANIPULATION_H_ */

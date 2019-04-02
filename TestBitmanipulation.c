@@ -1,11 +1,15 @@
 /*
- * switchTest.c
+ * TestBitmanipulation.c
  *
  *  Created on: 01.11.2018
  *      Author: eric
  */
 
-#include "TestAufgabe1.h"
+#include "TestBitmanipulation.h"
+
+void runTestBitmanipulation(int no, TestCaseBit test[]){
+
+}
 
 void runSwitchTests() {
 	short int number[] = { 0x0001, 0x1000, 0x1001, 0x0110, 0x1100, 0x0011,

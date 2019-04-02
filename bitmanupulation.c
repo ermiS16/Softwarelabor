@@ -1,12 +1,12 @@
 /*
- * aufgabe1.c
+ * bitmanipulation.c
  *
  *  Created on: 31.10.2018
  *      Author: eric
  */
 
 
-#include "aufgabe1.h"
+#include "bitmanipulation.h"
 
 short int switchLowHighByte(short int i){
 	unsigned short int j = i;

@@ -1,17 +1,18 @@
 /*
- * switchTest.h
+ * TestBitmanipulation.h
  *
  *  Created on: 01.11.2018
  *      Author: eric
  */
 
-#ifndef TESTAUFGABE1_H_
-#define TESTAUFGABE1_H_
+#ifndef TESTBITMANIPULATION_H_
+#define TESTBITMANIPULATION_H_
 
+#include "bitmanipulation.h"
 #include "enums.h"
 #include "libs.h"
-#include "aufgabe1.h"
 
+void runTestBitmanipulation(int no, TestCaseBit test[]);
 
 Test testLowHigh(short int i, short int expected);
 Test testLowHighLow(short int i, short int expected);
@@ -28,4 +29,4 @@ Test testDeserializeSerialize(Status *s, Numbers *n, short int data,
 		Status expectedStatus, Numbers expectedNumber, short int expectedData);
 void runDeserializeSerializeTests();
 
-#endif /* TESTAUFGABE1_H_ */
+#endif /* TESTBITMANIPULATION_H_ */

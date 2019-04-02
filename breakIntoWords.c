@@ -1,12 +1,13 @@
 /*
- * aufgabe3.c
+ * breakIntoWords.c
  *
  *  Created on: 21.11.2018
  *      Author: Eric
  */
 
-#include "aufgabe3.h"
-#include "aufgabe2.h"
+#include "breakIntoWords.h"
+
+#include "suffix.h"
 
 int breakIntoWords(char *line, int maxwords, char *words[]){
 	int newWord = 1;

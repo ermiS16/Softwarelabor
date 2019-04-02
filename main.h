@@ -8,13 +8,17 @@
 #ifndef MAIN_H_
 #define MAIN_H_
 
-#include "TestAufgabe1.h"
-#include "TestAufgabe2.h"
-#include "TestAufgabe3.h"
+#include "TestBitmanipulation.h"
+#include "TestBreakIntoWords.h"
+#include "TestSuffix.h"
+#include "TestCount.h"
+#include "TestReverse.h"
 
 
 int main(void);
+void initializeTestCaseBit(void);
 void initializeTestCasesCount(void);
 void initializeTestCasesBreak(void);
 void initializeTestCaseExtract(void);
+void initializeTestCasesReverse(void);
 #endif /* MAIN_H_ */

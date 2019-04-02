@@ -15,6 +15,11 @@ int main(){
 //	runDeserializeTests();
 //	runSerializeDeserializeTests();
 //	runDeserializeSerializeTests();
+
+	//Aufgabe 1
+	printf("-----------Start Test Bitmanipulation-------------\n\n");
+	initializeTestCaseBit();
+	printf("-----------End Test Bitmanipulation-------------\n\n");
 	//Tests Aufgabe2
 	printf("-----------Start Test Suffix-------------\n\n");
 	initializeTestCaseExtract();
@@ -26,7 +31,20 @@ int main(){
 	printf("-----------Start Test extract Words-------------\n\n");
 	initializeTestCasesBreak();
 	printf("-----------End Test extract Words-------------\n\n");
+
+	printf("-----------Start Test Reverse-------------\n\n");
+	initializeTestCasesReverse();
+	printf("-----------End Test Reverse-------------\n\n");
+
+
 	return 0;
+}
+
+void initializeTestCaseBit(void){
+	TestCaseBit testBitmanipulation[TEST_NO_BIT] = {
+
+	};
+	runTestBitmanipulation(TEST_NO_BIT, testBitmanipulation);
 }
 
 void initializeTestCaseExtract(void){
@@ -81,6 +99,18 @@ void initializeTestCasesBreak(void){
 	runTestsBreakWord(TEST_NO_BREAK, testCases);
 }
 
+void initializeTestCasesReverse(void){
+
+	TestCaseReverse testCases[TEST_NO_REVERSE] = {
+			{"12345", "54321"},
+			{"Hallo", "ollaH"},
+			{"Hallo Welt", "tlew ollaH"},
+			{"Hallo-Welt", "tlew-ollaH"},
+			{"", ""},
+			{"H","H"}
+	};
+	runTestsReverse(TEST_NO_REVERSE, testCases);
+}
 
 
 

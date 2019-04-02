@@ -1,11 +1,11 @@
 /*
- * TestAufgabe3.c
+ * TestBreakIntoWords.c
  *
  *  Created on: 21.11.2018
  *      Author: Eric
  */
 
-#include "TestAufgabe3.h"
+#include "TestBreakIntoWords.h"
 
 #define MAXWORDS 3
 
