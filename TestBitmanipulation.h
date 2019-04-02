@@ -12,21 +12,35 @@
 #include "enums.h"
 #include "libs.h"
 
-void runTestBitmanipulation(int no, TestCaseBit test[]);
+#define TEST_NO_LOWHIGH 11
+#define TEST_NO_SERIALIZE 12
+#define TEST_NO_DESERIALIZE 12
 
+typedef struct {
+	short int input;
+	short int expected;
+}TestCaseLowHigh;
+
+typedef struct {
+	Status status;
+	Numbers number;
+	short int expected;
+}TestCaseSerialize;
+
+typedef struct{
+	short int data;
+	Status expectedStatus;
+	Numbers expectedNumber;
+}TestCaseDeserialize;
+
+void runTestLowHigh(int no, TestCaseLowHigh test[]);
 Test testLowHigh(short int i, short int expected);
-Test testLowHighLow(short int i, short int expected);
-void runSwitchTests();
+
+void runTestSerialize(int no, TestCaseSerialize test[]);
 Test testSerialize(Status s, Numbers n, short int *data, short int expected);
-void runSerializeTests();
+
+void runTestDeserialize(int no, TestCaseDeserialize test[]);
 Test testDeserialize(Status *s, Numbers *n, short int data,
 		Status expectedStatus, Numbers expectedNumber);
-void runDeserializeTests();
-Test testSerializeDeserialize(Status s, Numbers n, short int *data,
-		short int expectedData, Status expectedStaus, Numbers expectedNumber);
-void runSerializeDeserializeTests();
-Test testDeserializeSerialize(Status *s, Numbers *n, short int data,
-		Status expectedStatus, Numbers expectedNumber, short int expectedData);
-void runDeserializeSerializeTests();
 
 #endif /* TESTBITMANIPULATION_H_ */

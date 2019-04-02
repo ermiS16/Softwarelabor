@@ -11,12 +11,6 @@
 #include "libs.h"
 #include "enums.h"
 
-typedef struct{
- char *input;
- char *expected;
-}TestCaseBit;
-
-#define TEST_NO_BIT 10
 #define BYTEMASK 0xFF
 #define BYTE 8
 

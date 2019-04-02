@@ -16,7 +16,9 @@
 
 
 int main(void);
-void initializeTestCaseBit(void);
+void initializeTestCaseLowHigh(void);
+void initializeTestCaseSerialize(void);
+void initializeTestCaseDeserialize(void);
 void initializeTestCasesCount(void);
 void initializeTestCasesBreak(void);
 void initializeTestCaseExtract(void);

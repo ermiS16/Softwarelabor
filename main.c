@@ -9,17 +9,17 @@
 
 
 int main(){
-	//Tests Aufgabe1
-//	runSwitchTests();
-//	runSerializeTests();
-//	runDeserializeTests();
-//	runSerializeDeserializeTests();
-//	runDeserializeSerializeTests();
 
 	//Aufgabe 1
-	printf("-----------Start Test Bitmanipulation-------------\n\n");
-	initializeTestCaseBit();
-	printf("-----------End Test Bitmanipulation-------------\n\n");
+	printf("-----------Start Test LowHigh-------------\n\n");
+	initializeTestCaseLowHigh();
+	printf("-----------End Test LowHigh-------------\n\n");
+	printf("-----------Start Test Serialize-------------\n\n");
+	initializeTestCaseSerialize();
+	printf("-----------End Test Serialize-------------\n\n");
+	printf("-----------Start Test Deserialize-------------\n\n");
+	initializeTestCaseDeserialize();
+	printf("-----------End Test Deserialize-------------\n\n");
 	//Tests Aufgabe2
 	printf("-----------Start Test Suffix-------------\n\n");
 	initializeTestCaseExtract();
@@ -40,11 +40,57 @@ int main(){
 	return 0;
 }
 
-void initializeTestCaseBit(void){
-	TestCaseBit testBitmanipulation[TEST_NO_BIT] = {
+void initializeTestCaseLowHigh(void){
 
+	TestCaseLowHigh testLowHigh[TEST_NO_LOWHIGH] = {
+			{0x0001,0x0100},
+			{0x1000,0x0010},
+			{0x1001,0x0110},
+			{0x0110,0x1001},
+			{0x1100,0x0011},
+			{0x0011,0x1100},
+			{0x1110,0x1011},
+			{0x0111,0x1101},
+			{0x0101,0x0101},
+			{0x1010,0x1010},
+			{0xABCD,0xCDAB}
 	};
-	runTestBitmanipulation(TEST_NO_BIT, testBitmanipulation);
+	runTestLowHigh(TEST_NO_LOWHIGH, testLowHigh);
+}
+void initializeTestCaseSerialize(void){
+
+	TestCaseSerialize test[] = {
+			{Stop,One,0x0001},
+			{Stop,Fifteen,0x000F},
+			{Stop,Last,0x00FF},
+			{Start,One,0x0101},
+			{Start,Fifteen,0x010F},
+			{Start,Last,0x01FF},
+			{Finish,One,0x0501},
+			{Finish,Fifteen,0x050F},
+			{Finish,Last,0x05FF},
+			{Fail,One,0xFF01},
+			{Fail,Fifteen,0xFF0F},
+			{Fail,Last,0xFFFF}
+	};
+	runTestSerialize(TEST_NO_SERIALIZE, test);
+}
+void initializeTestCaseDeserialize(void){
+	TestCaseDeserialize test[] = {
+			{0x0001,Stop,One},
+			{0x000F,Stop,Fifteen},
+			{0x00FF,Stop,Last},
+			{0x0101,Start,One},
+			{0x010F,Start,Fifteen},
+			{0x01FF,Start,Last},
+			{0x0501,Finish,One},
+			{0x050F,Finish,Fifteen},
+			{0x05FF,Finish,Last},
+			{0xFF01,Fail,One},
+			{0xFF0F,Fail,Fifteen},
+			{0xFFFF,Fail,Last}
+	};
+		runTestDeserialize(TEST_NO_DESERIALIZE, test);
 }
 
 void initializeTestCaseExtract(void){

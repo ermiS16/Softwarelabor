@@ -7,10 +7,7 @@
 
 #include "TestBitmanipulation.h"
 
-void runTestBitmanipulation(int no, TestCaseBit test[]){
-
-}
-
+/*
 void runSwitchTests() {
 	short int number[] = { 0x0001, 0x1000, 0x1001, 0x0110, 0x1100, 0x0011,
 			0x1110, 0x0111, 0x0101, 0x1010, 0xABCD };
@@ -39,21 +36,20 @@ void runSwitchTests() {
 	}
 	printf("\n-------------- End Switch Byte Test -------------\n");
 }
-
-Test testLowHighLow(short int i, short int expected){
-	Test t;
-	short int switchNumber = switchLowHighByte(i);
-	printf("Number: %04hX, ", i);
-	printf("1. Switch: %04hX, ", switchNumber);
-	switchNumber = switchLowHighByte(switchNumber);
-	printf("2. Switch: %04hX, ", switchNumber);
-	printf("Expected 2. Switch: %04hX\n", expected);
-	if (expected == switchNumber) {
-		t = OK;
-	} else {
-		t = FAIL;
+*/
+void runTestLowHigh(int no, TestCaseLowHigh test[]){
+	Test t = FAIL;
+	for(int i=0; i<no; i++){
+		printf("Test %d:\n", i+1);
+		t = testLowHigh(test[i].input, test[i].expected);
+		if(t){
+			printf("Test: OK");
+		}else{
+			printf("Test FAIL");
+		}
+		printf("\n\n");
 	}
-	return t;
+
 }
 
 Test testLowHigh(short int i, short int expected) {
@@ -70,26 +66,20 @@ Test testLowHigh(short int i, short int expected) {
 	return t;
 }
 
-void runSerializeTests() {
-	Status s[] = { Stop, Start, Finish, Fail };
-	Numbers n[] = { One, Fifteen, Last };
-	short int expectedData[4][3] = { { 0x0001, 0x000F, 0x00FF }, { 0x0101, 0x010F,
-			0x01FF }, { 0x0501, 0x050F, 0x05FF }, { 0xFF01, 0xFF0F, 0xFFFF },
-			};
+void runTestSerialize(int no, TestCaseSerialize test[]) {
+	Test t;
 	short int data = 0;
-	short int *dat = &data;
-	int counter = 1;
 
-	printf("\n-------------- Start Serialize Test -----------\n\n");
-	for (int i = 0; i < sizeof(s) / sizeof(Status); i++) {
-		for (int k = 0; k < sizeof(n) / sizeof(Numbers); k++) {
-			printf("%d. Test:\n", counter++);
-			printf("Test Serialize: %d\n\n",
-					testSerialize(s[i], n[k], dat, expectedData[i][k]));
-
+	for (int i = 0; i < no; i++) {
+		printf("%d. Test:\n", i+1);
+		t = testSerialize(test[i].status, test[i].number, &data, test[i].expected);
+		if(t){
+			printf("Test: OK");
+		}else{
+			printf("Test: FAIL");
 		}
+		printf("\n\n");
 	}
-	printf("\n-------------- End Serialize Test -----------\n");
 }
 
 Test testSerialize(Status s, Numbers n, short int *data, short int expected) {
@@ -105,34 +95,27 @@ Test testSerialize(Status s, Numbers n, short int *data, short int expected) {
 	return t;
 }
 
-void runDeserializeTests() {
-	printf("\n-------------- Start Deserialize Test ------------\n\n");
-	Status expectedStatus[] = { Stop, Start, Finish, Fail };
-	Status stat = 0;
-	Status *s = &stat;
-	Numbers expectedNumber[] = { One, Fifteen, Last };
-	Numbers numb = 0;
-	Numbers *n = &numb;
-	short int data[4][3] = { { 0x0001, 0x000F, 0x00FF }, { 0x0101, 0x010F,
-			0x01FF }, { 0x0501, 0x050F, 0x05FF }, { 0xFF01, 0xFF0F, 0xFFFF}};
-	int counter = 1;
+void runTestDeserialize(int no, TestCaseDeserialize test[]) {
+	Test t;
+	Status status = 0;
+	Numbers number = 0;
 
-	for (int i = 0; i < sizeof(data) / sizeof(*data); i++) {
-		for (int k = 0; k < sizeof(*data) / sizeof(**data); k++) {
-			printf("%d. Test:\n", counter++);
-			printf("Test Deserialize: %d\n\n",
-					testDeserialize(s, n, data[i][k], expectedStatus[i],
-							expectedNumber[k]));
+	for(int i=0; i<no; i++){
+		printf("Test %d: ", i+1);
+		t = testDeserialize(&status, &number, test[i].data, test[i].expectedStatus,
+				test[i].expectedNumber);
+		if(t){
+			printf("Test: OK");
+		}else{
+			printf("Test: FAIL");
 		}
+		printf("\n\n");
 	}
-
-	printf("\n-------------- End Deserialize Test -----------\n");
 }
 
 Test testDeserialize(Status *s, Numbers *n, short int data,
 		Status expectedStatus, Numbers expectedNumber) {
 	Test t = OK;
-//	printf("Data: %04X, ", data);
 	deserialize(data, s, n);
 	if (*s == expectedStatus) {
 		if (*n == expectedNumber) {
@@ -146,86 +129,3 @@ Test testDeserialize(Status *s, Numbers *n, short int data,
 			expectedNumber);
 	return t;
 }
-
-void runSerializeDeserializeTests() {
-	Status s[] = { Stop, Start, Finish, Fail };
-	Numbers n[] = { One, Fifteen, Last };
-	short int expectedData[4][3] = { { 0x0001, 0x000F, 0x00FF }, { 0x0101, 0x010F,
-			0x01FF }, { 0x0501, 0x050F, 0x05FF }, { 0xFF01, 0xFF0F, 0xFFFF } };
-	short int data = 0;
-	short int *dat = &data;
-	int counter=1;
-	printf("\n-------------- Start Serialize-Deserialize Test -----------\n");
-	for (int i = 0; i < sizeof(s) / sizeof(Status); i++) {
-		for (int k = 0; k < sizeof(n) / sizeof(Numbers); k++) {
-			printf("%d. Test:\n", counter++);
-			printf("Test Serialize-Deserialize: %d\n\n",
-					testSerializeDeserialize(s[i], n[k], dat, expectedData[i][k],
-							s[i], n[k]));
-		}
-	}
-	printf("\n-------------- End Serialize-Deserialize Test -----------\n");
-}
-
-Test testSerializeDeserialize(Status s, Numbers n, short int *data,
-	short int expectedData, Status expectedStatus, Numbers expectedNumber){
-	Status *ptrs = &s;
-	Numbers *ptrn = &n;
-	Test t=OK;
-	serialize(s,n,data);
-	printf("Status: %04X, Number: %04X, Serialized: %04hX, Expected: %04hX\n",
-			s, n, *data, expectedData);
-	deserialize(*data,ptrs,ptrn);
-	printf("Data: %04hX, Status: %04X, Number: %04X, Expected Status: %04X, "
-			"Expected Number: %04X\n", *data, *ptrs, *ptrn, expectedStatus,
-			expectedNumber);
-	if((*ptrs == expectedStatus) && (*ptrn == expectedNumber)){
-		t=OK;
-	}else{
-		t=FAIL;
-	}
-
-	return t;
-
-}
-void runDeserializeSerializeTests(){
-	Status expectedStatus[] = { Stop, Start, Finish, Fail };
-	Status stat = 0;
-	Status *s = &stat;
-	Numbers expectedNumber[] = { One, Fifteen, Last };
-	Numbers numb = 0;
-	Numbers *n = &numb;
-	short int data[4][3] = { { 0x0001, 0x000F, 0x00FF }, { 0x0101, 0x010F,
-			0x01FF }, { 0x0501, 0x050F, 0x05FF }, { 0xFF01, 0xFF0F, 0xFFFF } };
-	int counter = 1;
-	printf("\n-------------- Start Deserialize-Serialize Test -----------\n");
-	for (int i = 0; i < sizeof(data) / sizeof(*data); i++) {
-		for (int k = 0; k < sizeof(*data) / sizeof(**data); k++) {
-			printf("%d. Test:\n", counter++);
-			printf("Test Deserialize-Serialize: %d\n\n",
-					testDeserializeSerialize(s, n, data[i][k],
-							expectedStatus[i], expectedNumber[k], data[i][k]));
-		}
-	}
-	printf("\n-------------- End Deserialize-Serialize Test -----------\n");
-}
-
-Test testDeserializeSerialize(Status *s, Numbers *n, short int data,
-		Status expectedStatus, Numbers expectedNumber, short int expectedData){
-	Test t=OK;
-	short int *ptrd = &data;
-	deserialize(data, s, n);
-	printf("Data: %04hX, Status: %04X, Number: %04X, Expected Status: %04X, "
-			"Expected Number: %04X\n", data, *s, *n, expectedStatus,
-			expectedNumber);
-	serialize(*s,*n,ptrd);
-	printf("Status: %04X, Number: %04X, Serialized: %04hX, Expected: %04hX\n",
-			*s, *n, *ptrd, expectedData);
-	if(*ptrd == expectedData){
-		t=OK;
-	}else{
-		t=FAIL;
-	}
-	return t;
-}
-
