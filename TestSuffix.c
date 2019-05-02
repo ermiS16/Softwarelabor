@@ -40,15 +40,26 @@ Test testSuffix(char* pattern, char* input, char *expected){
 }
 
 void runTestSuffix2(int no, TestCaseExtract test[]){
-
+	Test t=OK;
+	for(int i=0; i<no; i++){
+		printf("Test %d:\n", i+1);
+		t = testSuffix2(test[i].pattern, test[i].input, test[i].expected);
+		if(t==OK){
+			printf("Test: OK");
+		}else{
+			printf("Test: FAIL");
+		}
+		printf("\n\n");
+	}
 }
 
 Test testSuffix2(char* pattern, char* input, char *expected){
 	Test t=OK;
 	char **output = &input;
+
 	printf("Pattern: %s\nString: %s\n", pattern, input);
 	extract2(input, output, pattern);
-	printf("Output: %s, Expected: %s\n\n", *output , expected);
+	printf("Output: %s, Expected: %s\n", *output , expected);
 	return t;
 }
 

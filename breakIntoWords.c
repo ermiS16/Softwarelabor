@@ -13,28 +13,32 @@ int breakIntoWords(char *line, int maxwords, char *words[]){
 	int newWord = 1;
 	int wordIndex = 0;
 
-	while(wordIndex < maxwords && *line != '\0'){
+	//Maxwords nicht erreicht UND es gibt noch Wörter
+	while(wordIndex < maxwords && (*line != '\0')){
 
+		//Bei Leetzeichen, diese durch \0 ersetzen
 		while(*line == ' '){
 			newWord = 1;
 			*line = '\0';
 			line++;
 		}
 
-		if(*line != ' ' && *line != '\0'){
+		//Wenn neues Wort, dann Anfangsadresse des Wortes in words[] speichern.
+		if(*line != ' ' && (*line != '\0')){
 			if(newWord){
 				words[wordIndex] = line;
 				wordIndex++;
 				newWord = 0;
 			}
 		}
+
+		//Wenn Maxword erreicht, dann gehe ans Ende vom Wort und setze nulltermianl
 		if(wordIndex == maxwords){
 			while(*line != ' '){
 				line++;
 			}
 			*line = '\0';
 		}
-
 		line++;
 	}
 	return wordIndex;

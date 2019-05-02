@@ -21,26 +21,36 @@ char *extract(char *input, char *pattern){
 	int indexI = inputLength-1;
 	int indexP = patternLength-1;
 	int matching = 0;
+	//Index fängt hinten bei Wort und Pattern an
+	//zum zurücksetzen bei !matching
 	int indexTmpI = indexI;
 	int indexTmpP = indexP;
 
+	//Wort muss existieren und noch kein matching
 	while(indexI > 0 && !matching){
 		indexTmpI = indexI;
 		indexTmpP = indexP;
-		while(!matching && input[indexI] == pattern[indexP]){
+		//Pattern noch nicht erkannt
+		//Vergleich von hinten.
+		//Wenn indexP=0 dann pattern erkannt.
+		while(!matching && (input[indexI] == pattern[indexP])){
 			if(indexP == 0) matching = 1;
 			indexI--;
 			indexP--;
 		}
+		//Bei input[] != pattern[] Index zurücksetzen
+		//Nächstes Zeichen von Input weitermachen.
 		indexI = indexTmpI;
 		indexP = indexTmpP;
 		indexI--;
 	}
 
 	if(matching){
+		//IndexInput wird um patternLength vergrößert
 		for(int i = 0; i < patternLength; i++){
 			indexI++;
 		}
+		//result = String hinter pattern.
 		result = &input[indexI];
 	}
 	return result;

@@ -11,30 +11,30 @@
 int main(){
 
 	//Aufgabe 1
-	printf("-----------Start Test LowHigh-------------\n\n");
-	initializeTestCaseLowHigh();
-	printf("-----------End Test LowHigh-------------\n\n");
-	printf("-----------Start Test Serialize-------------\n\n");
-	initializeTestCaseSerialize();
-	printf("-----------End Test Serialize-------------\n\n");
-	printf("-----------Start Test Deserialize-------------\n\n");
-	initializeTestCaseDeserialize();
-	printf("-----------End Test Deserialize-------------\n\n");
+//	printf("-----------Start Test LowHigh-------------\n\n");
+//	initializeTestCaseLowHigh();
+//	printf("-----------End Test LowHigh-------------\n\n");
+//	printf("-----------Start Test Serialize-------------\n\n");
+//	initializeTestCaseSerialize();
+//	printf("-----------End Test Serialize-------------\n\n");
+//	printf("-----------Start Test Deserialize-------------\n\n");
+//	initializeTestCaseDeserialize();
+//	printf("-----------End Test Deserialize-------------\n\n");
 	//Tests Aufgabe2
-	printf("-----------Start Test Suffix-------------\n\n");
-	initializeTestCaseExtract();
-	printf("-----------End Test Suffix-------------\n\n");
-	printf("-----------Start Test Count Words-------------\n\n");
-	initializeTestCasesCount();
-	printf("-----------End Test Count Words-------------\n\n");
+//	printf("-----------Start Test Suffix-------------\n\n");
+//	initializeTestCaseExtract();
+//	printf("-----------End Test Suffix-------------\n\n");
+//	printf("-----------Start Test Count Words-------------\n\n");
+//	initializeTestCasesCount();
+//	printf("-----------End Test Count Words-------------\n\n");
 	//Tests Aufgabe3
 	printf("-----------Start Test extract Words-------------\n\n");
 	initializeTestCasesBreak();
 	printf("-----------End Test extract Words-------------\n\n");
-
-	printf("-----------Start Test Reverse-------------\n\n");
-	initializeTestCasesReverse();
-	printf("-----------End Test Reverse-------------\n\n");
+//
+//	printf("-----------Start Test Reverse-------------\n\n");
+//	initializeTestCasesReverse();
+//	printf("-----------End Test Reverse-------------\n\n");
 
 
 	return 0;
@@ -111,6 +111,7 @@ void initializeTestCaseExtract(void){
 				   {"l:", "Hal:l::o", ":o"},
 			     };
 		runTestSuffix(TEST_NO_SUFFIX, testsExtractSuffix);
+		runTestSuffix2(TEST_NO_SUFFIX, testsExtractSuffix);
 }
 
 void initializeTestCasesCount(void){
